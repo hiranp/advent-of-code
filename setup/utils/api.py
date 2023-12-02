@@ -38,7 +38,7 @@ COOKIES = {"session": SESSION}
 
 
 def get_input(day):
-    input_file = f"{current_year}/{day:01d}/inputs.txt"
+    input_file = f"{current_year}/{day:01d}/input.txt"
     path = os.path.join(current_directory, f"{current_year}/{day:01d}")
 
     # Create the path if it doesn't exist
