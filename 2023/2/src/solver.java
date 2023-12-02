@@ -13,27 +13,35 @@ public class solver {
         System.out.println(part2(data));
     }
 
-    
-public static String readData(String path) {
-    try {
-        // Current working directory
-        String current_dir = System.getProperty("user.dir");
-        Path relativePath = Paths.get(current_dir);
-        File file = new File(relativePath.resolve(path).toString());
-        Scanner scanner = new Scanner(file);
-        StringBuilder data = new StringBuilder();
-        while (scanner.hasNextLine()) {
-            data.append(scanner.nextLine()).append("\n");
+    public static String readData(String path) {
+        try {
+            // Current working directory
+            String current_dir = System.getProperty("user.dir");
+            Path relativePath = Paths.get(current_dir);
+            File file = new File(relativePath.resolve(path).toString());
+            Scanner scanner = new Scanner(file);
+            StringBuilder data = new StringBuilder();
+            while (scanner.hasNextLine()) {
+                data.append(scanner.nextLine()).append("\n");
+            }
+            scanner.close();
+            return data.toString();
+        } catch (Exception e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+            return "";
         }
-        scanner.close();
-        return data.toString();
-    } catch (Exception e) {
-        System.out.println("An error occurred.");
-        e.printStackTrace();
-        return "";
     }
-}
 
+    /**
+     * Part 1   
+     *   1. Parse the input data to extract the game ID and the sets of cubes revealed in each game.
+     *  2. For each game, check if any set of cubes revealed in the game contains more cubes of a certain color than the bag can contain. 
+     *       If such a set is found, the game is impossible and should be skipped.
+     *  3. If no such set is found, the game is possible and its ID should be added to the sum.
+     * @param data
+     * @return
+     */
     public static int part1(String data) {
         Pattern gamePattern = Pattern.compile("Game (\\d+): (.+)");
         Matcher gameMatcher = gamePattern.matcher(data);
@@ -48,7 +56,8 @@ public static String readData(String path) {
                 while (cubeMatcher.find()) {
                     int count = Integer.parseInt(cubeMatcher.group(1));
                     String color = cubeMatcher.group(2);
-                    if ((color.equals("red") && count > 12) || (color.equals("green") && count > 13) || (color.equals("blue") && count > 14)) {
+                    if ((color.equals("red") && count > 12) || (color.equals("green") && count > 13)
+                            || (color.equals("blue") && count > 14)) {
                         possible = false;
                         break;
                     }
@@ -64,29 +73,39 @@ public static String readData(String path) {
         return total;
     }
 
+    /**
+     * Part 2
+     *  1. Parse the input data to extract the game ID and the sets of cubes revealed in each game.
+     *  2. For each game, find the maximum number of cubes of each color revealed in any set. 
+     *   This will give us the minimum number of cubes of each color that must have been in the bag for the game to be possible.
+     *  3. Calculate the power of this minimum set of cubes by multiplying the numbers of red, green, and blue cubes together.
+     *  4. Add up the powers of the minimum sets of cubes for all games.
+     * @param data
+     * @return
+     */
     public static int part2(String data) {
-      Pattern gamePattern = Pattern.compile("Game (\\d+): (.+)");
-      Matcher gameMatcher = gamePattern.matcher(data);
-      int totalPower = 0;
-      while (gameMatcher.find()) {
-          String[] sets = gameMatcher.group(2).split("; ");
-          Map<String, Integer> minCubes = new HashMap<>();
-          minCubes.put("red", 0);
-          minCubes.put("green", 0);
-          minCubes.put("blue", 0);
-          for (String set : sets) {
-              Pattern cubePattern = Pattern.compile("(\\d+) (\\w+)");
-              Matcher cubeMatcher = cubePattern.matcher(set);
-              while (cubeMatcher.find()) {
-                  int count = Integer.parseInt(cubeMatcher.group(1));
-                  String color = cubeMatcher.group(2);
-                  minCubes.put(color, Math.max(minCubes.get(color), count));
-              }
-          }
-          int power = minCubes.get("red") * minCubes.get("green") * minCubes.get("blue");
-          totalPower += power;
-      }
-      return totalPower;
-  }
+        Pattern gamePattern = Pattern.compile("Game (\\d+): (.+)");
+        Matcher gameMatcher = gamePattern.matcher(data);
+        int totalPower = 0;
+        while (gameMatcher.find()) {
+            String[] sets = gameMatcher.group(2).split("; ");
+            Map<String, Integer> minCubes = new HashMap<>();
+            minCubes.put("red", 0);
+            minCubes.put("green", 0);
+            minCubes.put("blue", 0);
+            for (String set : sets) {
+                Pattern cubePattern = Pattern.compile("(\\d+) (\\w+)");
+                Matcher cubeMatcher = cubePattern.matcher(set);
+                while (cubeMatcher.find()) {
+                    int count = Integer.parseInt(cubeMatcher.group(1));
+                    String color = cubeMatcher.group(2);
+                    minCubes.put(color, Math.max(minCubes.get(color), count));
+                }
+            }
+            int power = minCubes.get("red") * minCubes.get("green") * minCubes.get("blue");
+            totalPower += power;
+        }
+        return totalPower;
+    }
 
 }
