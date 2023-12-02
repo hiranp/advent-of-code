@@ -1,8 +1,6 @@
 from aocd.models import Puzzle
 import re
 
-from pkg_resources import to_filename
-
 puzzle = Puzzle(year=2023, day=1)
 data = puzzle.input_data
 # print(data)

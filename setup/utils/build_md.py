@@ -27,5 +27,5 @@ readme_content += "\n".join(tmp)
 with open("README.md", "w") as f:
     f.write(
         readme_content
-        + "\n\nCreated via: [advent-of-code-setup](https://github.com/tomfran/advent-of-code-setup)"
+        + "\n\nCredits: [advent-of-code-setup](https://github.com/tomfran/advent-of-code-setup)"
     )

@@ -44,7 +44,6 @@ def part2(data):
       This will give us the minimum number of cubes of each color that must have been in the bag for the game to be possible.
   3. Calculate the power of this minimum set of cubes by multiplying the numbers of red, green, and blue cubes together.
   4. Add up the powers of the minimum sets of cubes for all games.
-
   """
   games = re.findall(r'Game (\d+): (.+)', data)
   total_power = 0
