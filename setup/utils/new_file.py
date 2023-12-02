@@ -51,6 +51,7 @@ print(f"Part 1 answer: {{part1_answer}}")
 # print(f"Part 2 answer: {{part2_answer}}")
 # puzzle.answer_b = part2_answer
 """
+
 # with open("python_templ.py", "r") as f:
 #     DEFAULT_FILE = f.read()
 
