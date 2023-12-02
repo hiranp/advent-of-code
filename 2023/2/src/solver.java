@@ -1,8 +1,12 @@
+// Creator: Hiran Patel
+// Date: 2021-09-01
+
 import java.util.regex.*;
 import java.util.*;
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.IOException;
 
 public class solver {
     public static void main(String[] args) {
@@ -15,18 +19,9 @@ public class solver {
 
     public static String readData(String path) {
         try {
-            // Current working directory
-            String current_dir = System.getProperty("user.dir");
-            Path relativePath = Paths.get(current_dir);
-            File file = new File(relativePath.resolve(path).toString());
-            Scanner scanner = new Scanner(file);
-            StringBuilder data = new StringBuilder();
-            while (scanner.hasNextLine()) {
-                data.append(scanner.nextLine()).append("\n");
-            }
-            scanner.close();
-            return data.toString();
-        } catch (Exception e) {
+            Path filePath = Paths.get(path);
+            return Files.readString(filePath);
+        } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
             return "";
