@@ -34,11 +34,15 @@ public class solver {
     }
 
     /**
-     * Part 1   
-     *   1. Parse the input data to extract the game ID and the sets of cubes revealed in each game.
-     *  2. For each game, check if any set of cubes revealed in the game contains more cubes of a certain color than the bag can contain. 
-     *       If such a set is found, the game is impossible and should be skipped.
-     *  3. If no such set is found, the game is possible and its ID should be added to the sum.
+     * Part 1
+     * 1. Parse the input data to extract the game ID and the sets of cubes revealed
+     * in each game.
+     * 2. For each game, check if any set of cubes revealed in the game contains
+     * more cubes of a certain color than the bag can contain.
+     * If such a set is found, the game is impossible and should be skipped.
+     * 3. If no such set is found, the game is possible and its ID should be added
+     * to the sum.
+     * 
      * @param data
      * @return
      */
@@ -75,11 +79,16 @@ public class solver {
 
     /**
      * Part 2
-     *  1. Parse the input data to extract the game ID and the sets of cubes revealed in each game.
-     *  2. For each game, find the maximum number of cubes of each color revealed in any set. 
-     *   This will give us the minimum number of cubes of each color that must have been in the bag for the game to be possible.
-     *  3. Calculate the power of this minimum set of cubes by multiplying the numbers of red, green, and blue cubes together.
-     *  4. Add up the powers of the minimum sets of cubes for all games.
+     * 1. Parse the input data to extract the game ID and the sets of cubes revealed
+     * in each game.
+     * 2. For each game, find the maximum number of cubes of each color revealed in
+     * any set.
+     * This will give us the minimum number of cubes of each color that must have
+     * been in the bag for the game to be possible.
+     * 3. Calculate the power of this minimum set of cubes by multiplying the
+     * numbers of red, green, and blue cubes together.
+     * 4. Add up the powers of the minimum sets of cubes for all games.
+     * 
      * @param data
      * @return
      */
