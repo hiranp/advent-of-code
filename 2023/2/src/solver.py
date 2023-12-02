@@ -3,7 +3,7 @@ import re
 
 puzzle = Puzzle(year=2023, day=2)
 data = puzzle.input_data
-print(data)
+#print(data)
 
 def part1(data):
   """
@@ -35,7 +35,7 @@ print(part1(data))
 part1_answer = part1(data)
 print(f"Part 1 answer: {part1_answer}")
 
-puzzle.answer_a = part1_answer
+# puzzle.answer_a = part1_answer
 
 def part2(data):
   """
