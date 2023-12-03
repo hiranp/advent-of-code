@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 import java.io.IOException;
 
-public class solver {
+public class solver2 {
     public static void main(String[] args) {
         String data = readData("2023/2/input.txt");
         System.out.println("Part 1:");
