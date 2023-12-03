@@ -14,6 +14,18 @@
 3. Use `go build` to build the program
 4. Use `go test` to run the tests
 
-Problems list:
+## Puzzles list
 
-1. [01](https://github.com/hiranp/advent-of-code/blob/main/01.py)
+## 2023
+
+### Day 1
+
+1. [2023/1/src/solver1](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.py)
+2. [2023/1/src/solver1](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.java)
+3. [2023/1/src/solver1](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.go)
+
+### Day 2
+
+1. [2023/2/src/solver2](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.py)
+2. [2023/2/src/solver2](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.java)
+3. [2023/2/src/solver2](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.go)

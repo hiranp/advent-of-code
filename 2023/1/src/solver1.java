@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.*;
 
-public class solver {
+public class solver1 {
   static Map<String, Integer> wordToNum = new HashMap<String, Integer>() {
     {
       put("one", 1);
@@ -23,16 +23,20 @@ public class solver {
     }
   };
 
-  static String testData = "1abc2\n" + //
+  // 12, 38, 15, and 77. Adding these together produces 142.
+  static String TD1 = "1abc2\n" + //
       "pqr3stu8vwx\n" + //
       "a1b2c3d4e5f\n" + //
       "treb7uchet";
 
   public static void main(String[] args) {
     // https://adventofcode.com/2023/day/1/input
-    String data = readData("2023/1/input.txt");
-    data = testData;
+    // String data = readData("2023/1/input.txt");
+    String data = TD1;
     String[] lines = data.split("\n");
+
+    int sum = calculateSum(data);
+    System.out.println("Sum: " + sum);
 
     int part1Answer = part1(lines);
     System.out.println("Part 1 answer: " + part1Answer);
@@ -74,6 +78,28 @@ public class solver {
         char firstDigit = digits.get(0);
         char lastDigit = digits.size() > 1 ? digits.get(digits.size() - 1) : firstDigit;
         total += Integer.parseInt("" + firstDigit + lastDigit);
+      }
+    }
+    return total;
+  }
+
+  public static int calculateSum(String data) {
+    String[] lines = data.split("\n");
+    int total = 0;
+    Pattern p = Pattern.compile("\\d+");
+
+    for (String line : lines) {
+      Matcher m = p.matcher(line);
+      Integer firstNum = null;
+      Integer lastNum = null;
+      while (m.find()) {
+        if (firstNum == null) {
+          firstNum = Integer.parseInt(m.group());
+        }
+        lastNum = Integer.parseInt(m.group());
+      }
+      if (firstNum != null && lastNum != null) {
+        total += firstNum + lastNum;
       }
     }
     return total;
