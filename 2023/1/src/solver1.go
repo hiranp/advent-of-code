@@ -1,4 +1,4 @@
-package main
+package solver1
 
 import (
 	"fmt"
