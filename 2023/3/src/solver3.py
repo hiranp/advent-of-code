@@ -1,5 +1,6 @@
 from aocd.models import Puzzle
 import re
+from collections import defaultdict
 
 puzzle = Puzzle(year=2023, day=3)
 data = puzzle.input_data
@@ -17,18 +18,15 @@ schematic = [
     "......755.",
     "...$.*....",
     ".664.598..",
-]
-
-
-def part1(data):
-    pass
-
-
-def part2(data):
-    pass
+]  # Output: 4361
 
 
 def sum_part_numbers(schematic):
+    """ "
+    This function takes a schematic and returns the sum of all the numbers
+    that are adjacent to a symbol.
+    TODO: This function is not complete. Only works for the test case.
+    """
     symbols = set(["*", "#", "+", "$"])
     total = 0
     rows = len(schematic)
@@ -80,78 +78,60 @@ def sum_part_numbers(schematic):
 
 print(f"test:", sum_part_numbers(schematic))  # Output: 4361
 
-
-# # Read the schematic from a file
-# with open("./input.txt", "r") as file:
-#     schematic = [line.strip() for line in file]
-
-# print(sum_part_numbers(schematic))
-
-import re
-import parse
-import math
-from collections import defaultdict
-
-# Initialize the total sum and the board
 total = 0
-board = []
-# A dictionary to store the numbers adjacent to each gear
+schematic = []
 gear_nums = defaultdict(list)
 
 
-# Function to check the neighbors of a number and add it to the gear_nums dictionary if it is adjacent to a gear
 def consider_number_neighbors(start_y, start_x, end_y, end_x, num):
-    global gear_nums
+    """
+    This function takes a number and the coordinates of its neighbors
+    and returns True if the number is adjacent to a symbol.
+    """
     for y in range(start_y, end_y + 1):
         for x in range(start_x, end_x + 1):
-            if y >= 0 and y < len(board) and x >= 0 and x < len(board[y]):
-                if board[y][x] not in "0123456789.":
-                    if board[y][x] == "*":
+            if y >= 0 and y < len(schematic) and x >= 0 and x < len(schematic[y]):
+                if schematic[y][x] not in "0123456789.":
+                    if schematic[y][x] == "*":
                         gear_nums[(y, x)].append(num)
                     return True
     return False
 
 
-# Regular expression pattern for a number
-num_pattern = re.compile("\d+")
+def part1(schematic):
+    """
+    This function takes a schematic and returns the sum of all the numbers
+    that are adjacent to a symbol.
+    """
+    global total
+    num_pattern = re.compile("\d+")
 
-# Read the schematic from the input file
-for line in open("input.txt").readlines():
-    board.append(line.strip())
+    for row_num in range(len(schematic)):
+        for match in re.finditer(num_pattern, schematic[row_num]):
+            if consider_number_neighbors(
+                row_num - 1,
+                match.start() - 1,
+                row_num + 1,
+                match.end(),
+                int(match.group(0)),
+            ):
+                total += int(match.group(0))
+    return total
 
-# Iterate over each row in the board
-for row_num in range(len(board)):
-    # Find all the numbers in the row
-    for match in re.finditer(num_pattern, board[row_num]):
-        # If the number is adjacent to a symbol, add it to the total sum
-        if consider_number_neighbors(
-            row_num - 1,
-            match.start() - 1,
-            row_num + 1,
-            match.end(),
-            int(match.group(0)),
-        ):
-            total += int(match.group(0))
 
-# Print the total sum
-print(total)
+def part2(schematic):
+    """
+    This function calculates finds the gear ratio of every gear and add them all
+    """
+    rat_total = 0
+    for v in gear_nums.values():
+        if len(v) == 2:
+            rat_total += v[0] * v[1]
+    return rat_total
 
-# Initialize the total product
-rat_total = 0
 
-# For each gear, if it is adjacent to exactly two numbers, multiply them and add to the total product
-for k, v in gear_nums.items():
-    if len(v) == 2:
-        rat_total += v[0] * v[1]
+with open("../input.txt", "r") as file:
+    schematic = [line.strip() for line in file]
 
-# Print the total product
-print(rat_total)
-
-# part1_answer = sum_part_numbers(data)
-# print(f"Part 1 answer: {part1_answer}")
-
-# puzzle.answer_a = part1_answer
-
-# part2_answer = part2(data)
-# print(f"Part 2 answer: {part2_answer}")
-# puzzle.answer_b = part2_answer
+print("Part 1: ", part1(schematic))
+print("Part 2: ", part2(schematic))
