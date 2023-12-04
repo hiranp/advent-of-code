@@ -33,7 +33,9 @@ for dirpath, dirnames, filenames in os.walk(path):
 
 readme_content += f"\n\n## {year}"
 for day, files in sorted(solutions.items()):
-    readme_content += f"\n\n### Day {day}\n\n"
+    readme_content += (
+        f"\n\n### Day {day} : https://adventofcode.com/{year}/day/{day}\n\n"
+    )
     tmp = [f"{i+1}. {parse(e)}" for i, e in enumerate(sorted(files, reverse=True))]
     readme_content += "\n".join(tmp)
 
