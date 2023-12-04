@@ -7,7 +7,8 @@ base_link = "https://github.com/hiranp/advent-of-code/blob/main/"
 
 
 def parse(e):
-    name = os.path.splitext(e)[0]
+    # name = os.path.splitext(e)[0]
+    name = os.path.basename(e)
     return f"[{name}]({base_link}{e})"
 
 
