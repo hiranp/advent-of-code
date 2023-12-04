@@ -7,6 +7,7 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
+current_day = 3
 
 path = f"{current_year}/{current_day}/src"
 
@@ -15,18 +16,18 @@ if not os.path.exists(path):
     os.makedirs(path, exist_ok=True)
 
 # Get the next number for the file
-files = [x for x in os.listdir(path) if "__" not in x and x.endswith('.py')]
+files = [x for x in os.listdir(path) if "__" not in x and x.endswith(".py")]
 if files:
-    match = re.search(r'(\d+)\.py$', files[-1])
+    match = re.search(r"(\d+)\.py$", files[-1])
     n = int(match.group(1)) + 1 if match is not None else 1
 else:
     n = 1
-    
+
 # Generated the input file
 input_str = get_input(current_day)
 with open(f"{current_year}/{current_day}/input.txt", "w") as f:
     f.write(input_str)
-    
+
 # Copy contents of template file
 DEFAULT_FILE = f"""
 from aocd.models import Puzzle
@@ -55,7 +56,7 @@ print(f"Part 1 answer: {{part1_answer}}")
 # with open("python_templ.py", "r") as f:
 #     DEFAULT_FILE = f.read()
 
-path = f"{current_year}/{current_day}/src/solver.py"
+path = f"{current_year}/{current_day}/src/solver{current_day}.py"
 
 # Create the file if it doesn't exist
 if not os.path.exists(path):
