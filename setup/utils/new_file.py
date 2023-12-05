@@ -7,7 +7,7 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
-current_day = 3
+# current_day = 3
 
 path = f"{current_year}/{current_day}/src"
 
