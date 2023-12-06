@@ -185,4 +185,4 @@ setup/session.cookie
 # Go workspace file
 go.work
 2023/*/pkg/**
-/bin/**
+**/bin/**

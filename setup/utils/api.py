@@ -10,25 +10,32 @@ current_directory = os.getcwd()
 
 print(f"Current directory is {current_directory}")
 
+
 def get_session_id():
     # Check if the session cookie exists in environment variable, otherwise use the file
     if "AOC_SESSION" in os.environ:
         session_id = os.environ["AOC_SESSION"]
+        print("Using session cookie from environment variable")
     else:
-        session_cookie_file = os.path.join(current_directory, "setup/session.cookie")
-        if not exists(session_cookie_file):
+        env_file = os.path.join(current_directory, "../../.env")
+        if not exists(env_file):
             # Handle the error: either create the file or raise an error
-            raise FileNotFoundError(f"No such file or directory: '{session_cookie_file}'")
-        with open(session_cookie_file) as f:
+            raise FileNotFoundError(
+                f"No such file or directory: '{session_cookie_file}'"
+            )
+        with open(env_file) as f:
             session_id = ""
             # If starts with session=, remove it
-            if f.read().startswith("session="):
-                f.seek(8)
+            if f.read().startswith("export AOC_SESSION="):
+                f.seek(20)
             session_id = f.read().strip()
+            print(f"found: {session_id}")
     return session_id
+
 
 def get_url(year, day):
     return f"https://adventofcode.com/{year}/day/{day}/input"
+
 
 SESSION = get_session_id()
 HEADERS = {
@@ -44,7 +51,7 @@ def get_input(day):
     # Create the path if it doesn't exist
     if not os.path.exists(path):
         os.makedirs(path, exist_ok=True)
-        
+
     # Check if the file exists before trying to open it
     if not os.path.exists(input_file):
         url = get_url(current_year, current_day)
