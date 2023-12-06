@@ -7,7 +7,7 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
-# current_day = 3
+# current_day = 5
 
 path = f"{current_year}/{current_day}/src"
 
@@ -29,7 +29,103 @@ with open(f"{current_year}/{current_day}/input.txt", "w") as f:
     f.write(input_str)
 
 # Copy contents of template file
-DEFAULT_FILE = f"""
+
+# Kotlin template
+DEFAULT_KT_UTL = """
+import java.math.BigInteger
+import java.security.MessageDigest
+import kotlin.io.path.Path
+import kotlin.io.path.readLines
+
+/**
+ * Reads lines from the given input txt file.
+ */
+fun readInput(name: String) = Path("src/$name.txt").readLines()
+
+/**
+ * Converts string to md5 hash.
+ */
+fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteArray()))
+    .toString(16)
+    .padStart(32, '0')
+
+/**
+ * The cleaner shorthand for printing output.
+ */
+fun Any?.println() = println(this)
+"""
+
+DEFAULT_KT = """
+fun main() {
+    fun part1(input: List<String>): Int {
+        return input.size
+    }
+
+    fun part2(input: List<String>): Int {
+        return input.size
+    }
+
+    // test if implementation meets criteria from the description, like:
+    val testInput = readInput("test")
+    check(part1(testInput) == 1)
+
+    val input = readInput("input")
+    part1(input).println()
+    part2(input).println()
+}
+"""
+with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.kt", "r") as f:
+    DEFAULT_KT = f.read()
+
+with open(f"{current_year}/{current_day}/src/Utils.kt", "r") as f:
+    DEFAULT_KT_UTL = f.read()
+
+# Go template
+DEFAULT_GO = """
+package main
+
+import (
+    "fmt"
+    "io/ioutil"
+    "log"
+    "strings"
+)
+
+func main() {
+    data, err := ioutil.ReadFile("input.txt")
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    input := strings.Split(string(data), "\\n")
+
+    fmt.Println(part1(input))
+    fmt.Println(part2(input))
+}
+
+func() part1(input []string) int {
+    return 0
+}
+
+func() part2(input []string) int {
+    return 0
+}
+"""
+
+DEFAULT_GO_MOD = f"""
+module github.com/hiranp/advent-of-code/{current_year}/{current_day}
+
+go 1.20
+"""
+
+with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.go", "r") as f:
+    DEFAULT_GO = f.read()
+with open(f"{current_year}/{current_day}/go.mod", "r") as f:
+    DEFAULT_GO_MOD = f.read()
+
+
+# Python template
+DEFAULT_PY = f"""
 from aocd.models import Puzzle
 import re
 
@@ -53,14 +149,11 @@ print(f"Part 1 answer: {{part1_answer}}")
 # puzzle.answer_b = part2_answer
 """
 
-# with open("python_templ.py", "r") as f:
-#     DEFAULT_FILE = f.read()
-
 path = f"{current_year}/{current_day}/src/solver{current_day}.py"
 
 # Create the file if it doesn't exist
 if not os.path.exists(path):
     with open(path, "w") as f:
-        f.write(DEFAULT_FILE)
+        f.write(DEFAULT_PY)
 
 print(f"Enter your solution in {path}")

@@ -1,6 +1,7 @@
 import os
 import datetime
 import collections
+from get_title import extract_h2_text
 
 current_year = datetime.datetime.now().year
 base_link = "https://github.com/hiranp/advent-of-code/blob/main/"
@@ -23,7 +24,7 @@ for dirpath, dirnames, filenames in os.walk(path):
     for filename in filenames:
         ext = os.path.splitext(filename)[1]
         if (
-            ext in [".py", ".go", ".js", ".cpp", ".c", ".java"]
+            ext in [".py", ".go", ".js", ".kt", ".c", ".java"]
             and "init" not in filename
         ):
             # Extract day from the path 2023/1/src/solver1.py after the year
@@ -31,11 +32,10 @@ for dirpath, dirnames, filenames in os.walk(path):
             year = dirpath.split("/")[-3]
             solutions[day].append(os.path.join(dirpath, filename))
 
+url = f"https://adventofcode.com/{current_year}/day/{day}"
 readme_content += f"\n\n## {year}"
 for day, files in sorted(solutions.items()):
-    readme_content += (
-        f"\n\n### Day {day} : https://adventofcode.com/{year}/day/{day}\n\n"
-    )
+    readme_content += f"\n\n### Day {day} : {url}\n\n"
     tmp = [f"{i+1}. {parse(e)}" for i, e in enumerate(sorted(files, reverse=True))]
     readme_content += "\n".join(tmp)
 
