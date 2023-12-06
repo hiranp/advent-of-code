@@ -12,8 +12,8 @@ print(f"Current directory is {current_directory}")
 
 def get_session_id():
     # Check if the session cookie exists in environment variable, otherwise use the file
-    if "ADVENT_OF_CODE_SESSION" in os.environ:
-        session_id = os.environ["ADVENT_OF_CODE_SESSION"]
+    if "AOC_SESSION" in os.environ:
+        session_id = os.environ["AOC_SESSION"]
     else:
         session_cookie_file = os.path.join(current_directory, "setup/session.cookie")
         if not exists(session_cookie_file):
