@@ -1,4 +1,5 @@
-import time, re
+import re
+import time
 
 # Function to load the data from the file
 def load_data(file):
@@ -37,7 +38,7 @@ def change_seed(seed, converters, low=1):
   return seed, low
 
 # Function to solve the puzzle
-def part1(puzzle):
+def part1_2(puzzle):
   numbers = [list(map(int, re.findall('\d+', part))) for part in puzzle]
   seeds, converters = numbers[0], numbers[1:]
   min_seed = min_location = float('inf')
@@ -58,5 +59,8 @@ def part1(puzzle):
 
 # Main execution
 time_start = time.perf_counter()
-print(f'Part 1: {part1(load_data("2023/5/input.txt"))}')
-print(f'Solved in {time.perf_counter()-time_start:.5f} Sec.')
+part1_anwser, part2_anwser = part1_2(load_data("2023/5/input.txt"))
+print(f'Part 1: {part1_anwser}')
+print(f'Part 1 Time: {time.perf_counter()-time_start:.5f} Sec.')
+print(f'Part 2: {part2_anwser}')
+print(f'Part 2 Time: {time.perf_counter()-time_start:.5f} Sec.')
