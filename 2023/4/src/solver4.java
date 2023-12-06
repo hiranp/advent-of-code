@@ -1,3 +1,5 @@
+package src;
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -6,7 +8,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class day4 {
+public class solver4 {
 
   public static File getFile(String filename) {
     File testFile = Paths.get("2023/4/" + filename).toFile();
@@ -14,7 +16,7 @@ public class day4 {
     System.out.printf("Reading file: %s%n", testFile.getAbsolutePath());
     return testFile;
   }
-  
+
   public static void main(String[] args) throws IOException {
     // Test case
     File testFile = getFile("testdata1.txt");
@@ -37,7 +39,6 @@ public class day4 {
     scanner.close();
     System.out.println("Total points: " + totalPoints);
   }
-
 
   public static int part1(Scanner lines) {
     int totalPoints = 0;

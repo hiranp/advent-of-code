@@ -2,7 +2,7 @@ from aocd.models import Puzzle
 import os
 
 """
-This script solves a problem involving a set of scratchcards. Each scratchcard has two lists of numbers separated by '|':
+This script solves the puzzle involving a set of scratchcards. Each scratchcard has two lists of numbers separated by '|':
     - A list of winning numbers
     - A list of numbers you have
 The goal is to figure out which of the numbers you have appear in the list of winning numbers. 

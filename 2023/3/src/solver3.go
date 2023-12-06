@@ -13,6 +13,16 @@ var total int
 var schematic []string
 var gearNums = make(map[string][]int)
 
+func readData(path string) string {
+	data, err := os.ReadFile(path)
+	if err != nil {
+		fmt.Println("An error occurred.")
+		fmt.Println(err)
+		return ""
+	}
+	return string(data)
+}
+
 func main() {
 	file, _ := os.Open("../input.txt")
 	scanner := bufio.NewScanner(file)

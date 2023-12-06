@@ -177,6 +177,10 @@ cython_debug/
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+setup/session.cookie
+*.cookie
+*.log
+2023/*/src/*jar
 
 # Go workspace file
 go.work
