@@ -1,5 +1,7 @@
 # Advent of code
 
+Welcome to my Advent of Code[^aoc] repository. I will be solving the puzzles in different languages and will be documenting the process here.
+
 # Python
 
 1. Use `python3 -m venv venv` to create a virtual environment
@@ -17,6 +19,11 @@
 # Kotlin
 
 Using the {Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/advent-of-code-kotlin-template] delivered by JetBrains.
+
+[^aoc]:
+    [Advent of Code][aoc] – An annual event of Christmas-oriented programming challenges started December 2015.
+    Every year since then, beginning on the first day of December, a programming puzzle is published every day for twenty-five days.
+    You can solve the puzzle and provide an answer using the language of your choice.
 
 ## Puzzles list
 
@@ -39,7 +46,7 @@ Using the {Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/ad
 
 ### Day 3 : [Gear Ratios](https://adventofcode.com/2023/day/6)
 
-1. [solver3.py](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/solver3.py)
+1. [Day03.py](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/Day03.py)
 2. [Day03.java](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/Day03.java)
 3. [Day03.go](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/Day03.go)
 
