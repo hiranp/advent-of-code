@@ -35,7 +35,8 @@ for dirpath, dirnames, filenames in os.walk(path):
 url = f"https://adventofcode.com/{current_year}/day/{day}"
 readme_content += f"\n\n## {year}"
 for day, files in sorted(solutions.items()):
-    readme_content += f"\n\n### Day {day} : {url}\n\n"
+    title_url = f"https://adventofcode.com/{current_year}/day/{day}"
+    readme_content += f"\n\n### Day {day} : [{extract_h2_text(title_url)}]({url})\n\n"
     tmp = [f"{i+1}. {parse(e)}" for i, e in enumerate(sorted(files, reverse=True))]
     readme_content += "\n".join(tmp)
 

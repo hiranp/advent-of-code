@@ -1,6 +1,6 @@
 # Advent of code
 
-# Setup
+# Python
 
 1. Use `python3 -m venv venv` to create a virtual environment
 2. Use `source venv/bin/activate` to activate the virtual environment
@@ -14,39 +14,52 @@
 3. Use `go build` to build the program
 4. Use `go test` to run the tests
 
+# Kotlin
+
+Using the {Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/advent-of-code-kotlin-template] delivered by JetBrains.
+
 ## Puzzles list
 
 
 ## 2023
 
-### Day 1 : https://adventofcode.com/2023/day/5
+### Day 1 : [Trebuchet?!](https://adventofcode.com/2023/day/6)
 
-1. [solver1.py](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.py)
-2. [solver1.java](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.java)
-3. [solver1.go](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/solver1.go)
-4. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Utils.kt)
-5. [Day01.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.kt)
+1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Utils.kt)
+2. [Day01.py](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.py)
+3. [Day01.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.kt)
+4. [Day01.java](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.java)
+5. [Day01.go](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.go)
 
-### Day 2 : https://adventofcode.com/2023/day/5
+### Day 2 : [Cube Conundrum](https://adventofcode.com/2023/day/6)
 
-1. [solver2.py](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.py)
-2. [solver2.java](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.java)
-3. [solver2.go](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/solver2.go)
+1. [Day02.py](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/Day02.py)
+2. [Day02.java](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/Day02.java)
+3. [Day02.go](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/Day02.go)
 
-### Day 3 : https://adventofcode.com/2023/day/5
+### Day 3 : [Gear Ratios](https://adventofcode.com/2023/day/6)
 
 1. [solver3.py](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/solver3.py)
-2. [solver3.java](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/solver3.java)
-3. [solver3.go](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/solver3.go)
+2. [Day03.java](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/Day03.java)
+3. [Day03.go](https://github.com/hiranp/advent-of-code/blob/main/2023/3/src/Day03.go)
 
-### Day 4 : https://adventofcode.com/2023/day/5
+### Day 4 : [Scratchcards](https://adventofcode.com/2023/day/6)
 
-1. [solver4.py](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/solver4.py)
-2. [solver4.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/solver4.kt)
-3. [solver4.java](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/solver4.java)
-4. [solver4.go](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/solver4.go)
+1. [Day04.py](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/Day04.py)
+2. [Day04.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/Day04.kt)
+3. [Day04.java](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/Day04.java)
+4. [Day04.go](https://github.com/hiranp/advent-of-code/blob/main/2023/4/src/Day04.go)
 
-### Day 5 : https://adventofcode.com/2023/day/5
+### Day 5 : [If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/6)
 
-1. [solver5.py](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/solver5.py)
-2. [day05.py](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/day05.py)
+1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Utils.kt)
+2. [Day05.py](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.py)
+3. [Day05.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.kt)
+4. [Day05.go](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.go)
+
+### Day 6 : [Wait For It](https://adventofcode.com/2023/day/6)
+
+1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Utils.kt)
+2. [Day06.py](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.py)
+3. [Day06.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.kt)
+4. [Day06.go](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.go)
