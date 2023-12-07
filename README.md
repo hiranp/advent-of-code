@@ -18,7 +18,7 @@ This repository contains my solutions for the [Advent of Code](https://adventofc
 
 # Kotlin
 
-Using the {Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/advent-of-code-kotlin-template] delivered by JetBrains.
+Using the (Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/advent-of-code-kotlin-template] delivered by JetBrains.
 
 ## Puzzles list
 
