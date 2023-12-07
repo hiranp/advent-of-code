@@ -22,15 +22,15 @@ Using the (Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/ad
 
 ## Puzzles list
 
+
 ## 2023
 
 ### Day 1 : [Trebuchet?!](https://adventofcode.com/2023/day/6)
 
-1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Utils.kt)
-2. [Day01.py](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.py)
-3. [Day01.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.kt)
-4. [Day01.java](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.java)
-5. [Day01.go](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.go)
+1. [Day01.py](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.py)
+2. [Day01.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.kt)
+3. [Day01.java](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.java)
+4. [Day01.go](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.go)
 
 ### Day 2 : [Cube Conundrum](https://adventofcode.com/2023/day/6)
 
@@ -53,14 +53,12 @@ Using the (Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/ad
 
 ### Day 5 : [If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/6)
 
-1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Utils.kt)
-2. [Day05.py](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.py)
-3. [Day05.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.kt)
-4. [Day05.go](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.go)
+1. [Day05.py](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.py)
+2. [Day05.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.kt)
+3. [Day05.go](https://github.com/hiranp/advent-of-code/blob/main/2023/5/src/Day05.go)
 
 ### Day 6 : [Wait For It](https://adventofcode.com/2023/day/6)
 
-1. [Utils.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Utils.kt)
-2. [Day06.py](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.py)
-3. [Day06.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.kt)
-4. [Day06.go](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.go)
+1. [Day06.py](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.py)
+2. [Day06.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.kt)
+3. [Day06.go](https://github.com/hiranp/advent-of-code/blob/main/2023/6/src/Day06.go)

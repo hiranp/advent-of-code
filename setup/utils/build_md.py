@@ -25,7 +25,7 @@ for dirpath, dirnames, filenames in os.walk(path):
         ext = os.path.splitext(filename)[1]
         if (
             ext in [".py", ".go", ".js", ".kt", ".c", ".java"]
-            and "init" not in filename
+            and filename not in ["init", "Utils.kt", "test.py"]
         ):
             # Extract day from the path 2023/1/src/solver1.py after the year
             day = dirpath.split("/")[-2]
