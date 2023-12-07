@@ -7,8 +7,9 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
-# current_day = 5
+current_day = 7
 
+cwd = os.path.dirname(os.path.realpath(__file__))
 path = f"{current_year}/{current_day}/src"
 
 # Create the path if it doesn't exist
@@ -31,43 +32,13 @@ with open(f"{current_year}/{current_day}/input.txt", "w") as f:
 # Copy contents of template file
 
 # Python template
-DEFAULT_PY = f"""
-from aocd.models import Puzzle
-import re
-import os
 
-def part1(data):
-    pass    
-
-def part2(data):
-    pass
-
-if __name__ == "__main__":
-    # If the input file is readable, use it instead of the default input data
-    current_directory = os.getcwd()
-    if os.access(f"{{current_directory}}/../input.txt", os.R_OK):
-        with open(f"{{current_directory}}/../input.txt", "r") as file:
-            data = file.read().split("\n")
-        print("Using input.txt for input data.")
-    else:
-        # If the input file is not readable, use the default input data
-        puzzle = Puzzle(year=2023, day=4)
-        data = puzzle.input_data.split("\n")
-        
-    part1_answer = part1(data)
-    print(f"Part 1 answer: {{part1_answer}}")
-
-    # puzzle.answer_a = part1_answer
-
-    # part2_answer = part2(data)
-    # print(f"Part 2 answer: {{part2_answer}}")
-    # puzzle.answer_b = part2_answer
-"""
-
-path = f"{current_year}/{current_day}/src/Day{current_day:01d}.py"
+path = f"{current_year}/{current_day}/src/Day{current_day:02d}.py"
 
 # Create the file if it doesn't exist
 if not os.path.exists(path):
+    with open(f"{cwd}/tmpl.py", "r") as tmpl:
+        DEFAULT_PY = tmpl.read()
     with open(path, "w") as f:
         f.write(DEFAULT_PY)
 
@@ -116,7 +87,7 @@ fun main() {
     part2(input).println()
 }
 """
-with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.kt", "w") as f:
+with open(f"{current_year}/{current_day}/src/Day{current_day:02d}.kt", "w") as f:
     f.write(DEFAULT_KT)
 with open(f"{current_year}/{current_day}/src/Utils.kt", "w") as f:
     f.write(DEFAULT_KT_UTL)
@@ -127,9 +98,9 @@ module github.com/hiranp/advent-of-code/{current_year}/{current_day}
 
 go 1.20
 """
-with open("tmpl.go", "r") as tmpl:
+with open(f"{cwd}/tmpl.go", "r") as tmpl:
     DEFAULT_GO = tmpl.read()
-with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.go", "w") as f:
+with open(f"{current_year}/{current_day}/src/Day{current_day:02d}.go", "w") as f:
     f.write(DEFAULT_GO)
 with open(f"{current_year}/{current_day}/go.mod", "w") as f:
     f.write(DEFAULT_GO_MOD)
