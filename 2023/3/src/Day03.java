@@ -4,7 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.regex.*;
 
-public class solver3 {
+public class Day03 {
   static int total = 0;
   static ArrayList<String> schematic = new ArrayList<>();
   static HashMap<String, ArrayList<Integer>> gearNums = new HashMap<>();
