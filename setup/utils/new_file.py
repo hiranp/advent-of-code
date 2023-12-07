@@ -34,10 +34,7 @@ with open(f"{current_year}/{current_day}/input.txt", "w") as f:
 DEFAULT_PY = f"""
 from aocd.models import Puzzle
 import re
-
-puzzle = Puzzle(year={current_year}, day={current_day})
-data = puzzle.input_data
-# print(data)
+import os
 
 def part1(data):
     pass    
@@ -45,17 +42,29 @@ def part1(data):
 def part2(data):
     pass
 
-part1_answer = part1(data)
-print(f"Part 1 answer: {{part1_answer}}")
+if __name__ == "__main__":
+    # If the input file is readable, use it instead of the default input data
+    current_directory = os.getcwd()
+    if os.access(f"{{current_directory}}/../input.txt", os.R_OK):
+        with open(f"{{current_directory}}/../input.txt", "r") as file:
+            data = file.read().split("\n")
+        print("Using input.txt for input data.")
+    else:
+        # If the input file is not readable, use the default input data
+        puzzle = Puzzle(year=2023, day=4)
+        data = puzzle.input_data.split("\n")
+        
+    part1_answer = part1(data)
+    print(f"Part 1 answer: {{part1_answer}}")
 
-# puzzle.answer_a = part1_answer
+    # puzzle.answer_a = part1_answer
 
-# part2_answer = part2(data)
-# print(f"Part 2 answer: {{part2_answer}}")
-# puzzle.answer_b = part2_answer
+    # part2_answer = part2(data)
+    # print(f"Part 2 answer: {{part2_answer}}")
+    # puzzle.answer_b = part2_answer
 """
 
-path = f"{current_year}/{current_day}/src/solver{current_day}.py"
+path = f"{current_year}/{current_day}/src/Day{current_day:01d}.py"
 
 # Create the file if it doesn't exist
 if not os.path.exists(path):
@@ -112,48 +121,25 @@ with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.kt", "w") as f
 with open(f"{current_year}/{current_day}/src/Utils.kt", "w") as f:
     f.write(DEFAULT_KT_UTL)
 
-# Go template
-DEFAULT_GO = """
-package main
-
-import (
-    "fmt"
-    "io/ioutil"
-    "log"
-    "strings"
-)
-
-func main() {
-    data, err := ioutil.ReadFile("input.txt")
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    input := strings.Split(string(data), "\\n")
-
-    fmt.Println(part1(input))
-    fmt.Println(part2(input))
-}
-
-func() part1(input []string) int {
-    return 0
-}
-
-func() part2(input []string) int {
-    return 0
-}
-"""
-
+# Go starter template
 DEFAULT_GO_MOD = f"""
 module github.com/hiranp/advent-of-code/{current_year}/{current_day}
 
 go 1.20
 """
-
+with open("tmpl.go", "r") as tmpl:
+    DEFAULT_GO = tmpl.read()
 with open(f"{current_year}/{current_day}/src/Day{current_day:01d}.go", "w") as f:
     f.write(DEFAULT_GO)
 with open(f"{current_year}/{current_day}/go.mod", "w") as f:
     f.write(DEFAULT_GO_MOD)
+# Add entry to the end of go.work file
+mod_path = f"use ./{current_year}/{current_day}"
+# Only add mod_path if it doesn't exist in go.work
+with open("go.work", "r") as f:
+    if not mod_path in f.read():
+        with open("go.work", "a") as f:
+            f.write(f"\n{mod_path}")
 
 
 print(f"Enter your solution in {path}")

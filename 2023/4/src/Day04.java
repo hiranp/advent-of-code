@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
-public class solver4 {
+public class Day04 {
 
   public static File getFile(String filename) {
     File testFile = Paths.get("2023/4/" + filename).toFile();

@@ -17,19 +17,17 @@ def get_session_id():
         session_id = os.environ["AOC_SESSION"]
         print("Using session cookie from environment variable")
     else:
-        env_file = os.path.join(current_directory, "../../.env")
+        env_file = os.path.join(current_directory, ".env")
         if not exists(env_file):
             # Handle the error: either create the file or raise an error
-            raise FileNotFoundError(
-                f"No such file or directory: '{session_cookie_file}'"
-            )
+            raise FileNotFoundError(f"No such file or directory: '{env_file}'")
         with open(env_file) as f:
             session_id = ""
             # If starts with session=, remove it
             if f.read().startswith("export AOC_SESSION="):
-                f.seek(20)
+                f.seek(19)
             session_id = f.read().strip()
-            print(f"found: {session_id}")
+            print(f"session_id: {session_id}")
     return session_id
 
 

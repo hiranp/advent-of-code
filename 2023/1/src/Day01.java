@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.*;
 
-public class solver1 {
+public class Day01 {
   static Map<String, Integer> wordToNum = new HashMap<String, Integer>() {
     {
       put("one", 1);
