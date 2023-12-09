@@ -23,11 +23,16 @@ solutions = collections.defaultdict(list)
 for dirpath, dirnames, filenames in os.walk(path):
     for filename in filenames:
         ext = os.path.splitext(filename)[1]
-        if (
-            ext in [".py", ".go", ".js", ".kt", ".c", ".java"]
-            and filename not in ["init", "Utils.kt", "test.py"]
-        ):
+        if ext in [".py", ".go", ".js", ".kt", ".c", ".java"] and filename not in [
+            "init",
+            "Utils.kt",
+            "test.py",
+        ]:
             # Extract day from the path 2023/1/src/solver1.py after the year
+            # print(f"dir: {dirpath}, file: {filename}")
+            # Only files under src/ are considered
+            if not dirpath.endswith("src"):
+                continue
             day = dirpath.split("/")[-2]
             year = dirpath.split("/")[-3]
             solutions[day].append(os.path.join(dirpath, filename))
