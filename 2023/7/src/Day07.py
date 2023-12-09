@@ -35,6 +35,7 @@ def part1(data):
         if len(parts) == 2:
             hand, bid = parts
             plays.append((hand, int(bid)))
+            print(f"Hand: {hand}, Bid: {bid}")
     total = calculate_total(plays)
     return total
 
@@ -54,6 +55,7 @@ def part2(data):
             hand, bid = parts
             plays.append((hand, int(bid)))
     plays.sort(key=lambda play: strength_j(play[0]))
+    print(f"Plays: {plays}")
     return sum(rank * bid for rank, (hand, bid) in enumerate(plays, 1))
 
 
@@ -101,6 +103,7 @@ def strength_j(hand):
 def classify(hand):
     # converts the dict_values object to a list, so you can use the count method on it.
     counts = list(Counter(hand).values())
+    print(f"Counts: {counts}")
     if 5 in counts:
         return 6
     if 4 in counts:

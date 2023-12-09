@@ -95,32 +95,6 @@ def part2(data):
 
 
 # if __name__ == "__main__":
-#     t_data = test_data1.split("\n")
-#     print(t_data)
-#     part1_answer = part1(t_data)
-#     print(f"Test 1: {part1_answer}")
-#     assert part1_answer == None
-
-#     t_data = test_data2.split("\n")
-#     part2_answer = part2(t_data)
-#     print(f"Test 2: {part2_answer}")
-#     assert part2_answer == None
-
-#     # data = read_input_data(INPUT_FILE)
-#     # start_p1 = time.perf_counter()
-#     # part1_answer = part1(data)
-#     # print(f"Part 1 answer: {part1_answer}")
-#     # # puzzle.answer_a = part1_answer
-#     # print(f"Part 1 time: {time.perf_counter() - start_p1:.5f} Sec.")
-
-#     # start_p2 = time.perf_counter()
-#     # # part2_answer = part2(data)
-#     # # print(f"Part 2 answer: {part2_answer}")
-#     # # puzzle.answer_b = part2_answer
-#     # print(f"Part 2 time: {time.perf_counter() - start_p2} Sec.")
-
-
-# if __name__ == "__main__":
 #     test_data1 = """
 #     LLR
 
@@ -220,3 +194,15 @@ if __name__ == "__main__":
     print(f"P1 Steps required to reach ZZZ: {steps}")
     steps = part2(input_string)
     print(f"P2 Steps required to reach ZZZ: {steps}")
+    # data = read_input_data(INPUT_FILE)
+    # start_p1 = time.perf_counter()
+    # part1_answer = part1(data)
+    # print(f"Part 1 answer: {part1_answer}")
+    # # puzzle.answer_a = part1_answer
+    # print(f"Part 1 time: {time.perf_counter() - start_p1:.5f} Sec.")
+
+    # start_p2 = time.perf_counter()
+    # # part2_answer = part2(data)
+    # # print(f"Part 2 answer: {part2_answer}")
+    # # puzzle.answer_b = part2_answer
+    # print(f"Part 2 time: {time.perf_counter() - start_p2} Sec.")
