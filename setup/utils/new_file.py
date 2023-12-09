@@ -7,7 +7,7 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
-current_day = 7
+current_day = 8
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 path = f"{current_year}/{current_day}/src"
