@@ -94,66 +94,6 @@ def part2(data):
     return math.lcm(*steps_for)
 
 
-# if __name__ == "__main__":
-#     test_data1 = """
-#     LLR
-
-#     AAA = (BBB, BBB)
-#     BBB = (AAA, ZZZ)
-#     ZZZ = (ZZZ, ZZZ)
-#     """
-
-#     nodes, instructions = parse_input(test_data1)
-#     steps = navigate("AAA", instructions, nodes)
-#     print(f"Steps required to reach ZZZ: {steps}")
-
-#     # Read input.txt as a string
-#     with open("2023/8/input.txt", "r") as file:
-#         input_string = file.read()
-#     nodes, instructions = parse_input(input_string)
-#     steps = navigate("AAA", instructions, nodes)
-#     print(f"Part1 Steps required to reach ZZZ: {steps}")
-
-
-# def navigate2(current_nodes, instructions, nodes):
-#     steps = 0
-#     while not all(node.endswith("Z") for node in current_nodes):
-#         next_nodes = set()
-#         for node in current_nodes:
-#             if instructions[steps % len(instructions)] == "L":
-#                 next_nodes.add(nodes[node].left)
-#                 print(f"Node: {node} Left: {nodes[node].left}")
-#             else:
-#                 next_nodes.add(nodes[node].right)
-#                 print(f"Node: {node} Right: {nodes[node].right}")
-#         current_nodes = next_nodes
-#         steps += 1
-#     return steps
-
-
-# if __name__ == "__main__":
-#     test_data1 = """
-#     LR
-
-#     11A = (11B, XXX)
-#     11B = (XXX, 11Z)
-#     11Z = (11B, XXX)
-#     22A = (22B, XXX)
-#     22B = (22C, 22C)
-#     22C = (22Z, 22Z)
-#     22Z = (22B, 22B)
-#     XXX = (XXX, XXX)
-#     """
-#     # Read input.txt as a string
-#     with open("2023/8/input.txt", "r") as file:
-#         input_string = file.read()
-
-#     nodes, instructions = parse_input(input_string)
-#     start_nodes = {node for node in nodes if node.endswith("A")}
-#     steps = navigate2(start_nodes, instructions, nodes)
-#     print(f"P2 Steps required to reach ZZZ: {steps}")
-
-
 if __name__ == "__main__":
     test_data1 = """
     LLR

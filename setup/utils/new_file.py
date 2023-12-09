@@ -7,7 +7,6 @@ from api import get_input
 # Get the current year and day
 current_year = datetime.now().year
 current_day = datetime.now().day
-current_day = 8
 
 cwd = os.path.dirname(os.path.realpath(__file__))
 path = f"{current_year}/{current_day}/src"
@@ -87,10 +86,13 @@ fun main() {
     part2(input).println()
 }
 """
-with open(f"{current_year}/{current_day}/src/Day{current_day:02d}.kt", "w") as f:
-    f.write(DEFAULT_KT)
-with open(f"{current_year}/{current_day}/src/Utils.kt", "w") as f:
-    f.write(DEFAULT_KT_UTL)
+# Create the file if it doesn't exist
+kortlin_tpl = f"{current_year}/{current_day}/src/Day{current_day:02d}.kt"
+if not os.path.exists(kortlin_tpl):
+    with open(kortlin_tpl, "w") as f:
+        f.write(DEFAULT_KT)
+    with open(f"{current_year}/{current_day}/src/Utils.kt", "w") as f:
+        f.write(DEFAULT_KT_UTL)
 
 # Go starter template
 DEFAULT_GO_MOD = f"""
@@ -100,17 +102,20 @@ go 1.20
 """
 with open(f"{cwd}/tmpl.go", "r") as tmpl:
     DEFAULT_GO = tmpl.read()
-with open(f"{current_year}/{current_day}/src/Day{current_day:02d}.go", "w") as f:
-    f.write(DEFAULT_GO)
-with open(f"{current_year}/{current_day}/go.mod", "w") as f:
-    f.write(DEFAULT_GO_MOD)
+# Create the file if it doesn't exist
+go_tpl = f"{current_year}/{current_day}/src/Day{current_day:02d}.go"
+if not os.path.exists(go_tpl):
+    with open(go_tpl, "w") as f:
+        f.write(DEFAULT_GO)
+    with open(f"{current_year}/{current_day}/go.mod", "w") as f:
+        f.write(DEFAULT_GO_MOD)
 # Add entry to the end of go.work file
 mod_path = f"use ./{current_year}/{current_day}"
 # Only add mod_path if it doesn't exist in go.work
 with open("go.work", "r") as f:
     if not mod_path in f.read():
         with open("go.work", "a") as f:
-            f.write(f"\n{mod_path}")
+            f.write(f"\n{mod_path}\n")
 
 
 print(f"Enter your solution in {path}")
