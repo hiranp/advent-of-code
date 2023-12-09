@@ -45,9 +45,6 @@ def parse_input(input_string):
     return nodes, lines[0]
 
 
-import math
-
-
 def navigate2(current_node, instructions, nodes):
     sum = 0
     while not current_node.endswith("Z"):
@@ -57,6 +54,7 @@ def navigate2(current_node, instructions, nodes):
             current_node = n.left
         else:
             current_node = n.right
+        print(f"Node: {current_node}")
         sum += 1
     return sum
 
@@ -68,6 +66,7 @@ def navigate1(current_node, instructions, nodes):
             current_node = nodes[current_node].left
         else:
             current_node = nodes[current_node].right
+        print(f"Node: {current_node}, step {steps}")
         steps += 1
         if current_node == "ZZZ":
             return steps
