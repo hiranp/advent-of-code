@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 )
 
@@ -13,6 +14,7 @@ const (
 
 //TODO: Fix divide by zero error in part 2
 
+// Read large input data from file, or use provided string as input data
 func readInputData(args ...string) []string {
 	var lines []string
 
@@ -37,6 +39,21 @@ func readInputData(args ...string) []string {
 	}
 
 	return lines
+}
+
+// For small inputs, it's easier to just pass a string value
+func getAllLines(fileName string) []string {
+
+	// if file doesn't exist, try to treat as a string value. check if it contains newlines
+	if _, err := os.Stat(path.Join("../", fileName)); os.IsNotExist(err) {
+		if strings.Contains(fileName, "\n") {
+			return strings.Split(fileName, "\n")
+		}
+	}
+
+	bytes, _ := os.ReadFile(path.Join("../", fileName))
+
+	return strings.Split(string(bytes), "\n")
 }
 
 func assertError(got, want int) {
