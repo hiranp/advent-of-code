@@ -32,6 +32,14 @@ Using the (Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/ad
 3. [Day01.java](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.java)
 4. [Day01.go](https://github.com/hiranp/advent-of-code/blob/main/2023/1/src/Day01.go)
 
+### Day 10 : [Pipe Maze](https://adventofcode.com/2023/day/5)
+
+1. [t2.py](https://github.com/hiranp/advent-of-code/blob/main/2023/10/src/t2.py)
+2. [t.py](https://github.com/hiranp/advent-of-code/blob/main/2023/10/src/t.py)
+3. [Day10.py](https://github.com/hiranp/advent-of-code/blob/main/2023/10/src/Day10.py)
+4. [Day10.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/10/src/Day10.kt)
+5. [Day10.go](https://github.com/hiranp/advent-of-code/blob/main/2023/10/src/Day10.go)
+
 ### Day 2 : [Cube Conundrum](https://adventofcode.com/2023/day/5)
 
 1. [Day02.py](https://github.com/hiranp/advent-of-code/blob/main/2023/2/src/Day02.py)
@@ -75,3 +83,9 @@ Using the (Advent of Code Kotlin Template)[https://github.com/kotlin-hands-on/ad
 1. [Day08.py](https://github.com/hiranp/advent-of-code/blob/main/2023/8/src/Day08.py)
 2. [Day08.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/8/src/Day08.kt)
 3. [Day08.go](https://github.com/hiranp/advent-of-code/blob/main/2023/8/src/Day08.go)
+
+### Day 9 : [Mirage Maintenance](https://adventofcode.com/2023/day/5)
+
+1. [Day09.py](https://github.com/hiranp/advent-of-code/blob/main/2023/9/src/Day09.py)
+2. [Day09.kt](https://github.com/hiranp/advent-of-code/blob/main/2023/9/src/Day09.kt)
+3. [Day09.go](https://github.com/hiranp/advent-of-code/blob/main/2023/9/src/Day09.go)
