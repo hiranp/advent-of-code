@@ -64,7 +64,9 @@ KTJJT 220
 QQQJA 483
 `
 	assertError(part1(strings.Split(tdata, "\n")), 1)
+	assertError(part2(strings.Split(tdata, "\n")), 1)
 
+	data = readInputData()
 	fmt.Println(part1(data))
 	fmt.Println(part2(data))
 }

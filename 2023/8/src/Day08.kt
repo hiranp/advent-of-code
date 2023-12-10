@@ -1,11 +1,9 @@
 import java.io.File
 import java.lang.Integer.max
-import kotlin.math.lcm
 
 
 // NOTE: This solution is not complete. It is a work in progress.
 // Similiar to https://adventofcode.com/2019/day/20 Donut Maze
-fun Int.println() = println(this)
 
 data class Node(val left: String, val right: String)
 
@@ -23,18 +21,19 @@ fun parseInput(inputString: String): Pair<Map<String, Node>, String> {
 }
 
 /**
-    * Navigate to the end of the path, and return the number of steps required.
-    * @param currentNode The node to start from 
-    * @param instructions The instructions to follow
-    * @param nodes The map of nodes
-    * @return The number of steps required to reach the end of the path
-    */
-**/
+* Navigate to the end of the path, and return the number of steps required.
+* @param currentNode The node to start from 
+* @param instructions The instructions to follow
+* @param nodes The map of nodes
+* @return The number of steps required to reach the end of the path
+*
+*/
 fun navigate1(currentNode: String, instructions: String, nodes: Map<String, Node>): Int {
     var steps = 0
     var currentNodeVar = currentNode
     for (instruction in generateSequence { instructions[steps % instructions.length] }) {
-        currentNodeVar = if (instruction == 'L') nodes[currentNodeVar]?.left else nodes[currentNodeVar]?.right
+        // handle nulls
+        currentNodeVar = if (instruction == 'L') nodes[currentNodeVar]?.left ?: "" else nodes[currentNodeVar]?.right ?: ""
         println("Node: $currentNodeVar, step $steps")
         steps++
         if (currentNodeVar == "ZZZ") {
@@ -44,25 +43,39 @@ fun navigate1(currentNode: String, instructions: String, nodes: Map<String, Node
     return steps
 }
 
+fun gcd(a: Int, b: Int): Int {
+    if (b == 0) return a
+    return gcd(b, a % b)
+}
+
+fun lcm(a: Int, b: Int): Int {
+    return a / gcd(a, b) * b
+}
+
 /**
-    * Navigate to the end of the path, and return the number of steps required.
-    * @param currentNode The node to start from 
-    * @param instructions The instructions to follow
-    * @param nodes The map of nodes
-    * @return The number of steps required to reach the end of the path
-    */
-**/
+* Navigate to the end of the path, and return the number of steps required.
+* @param currentNode The node to start from 
+* @param instructions The instructions to follow
+* @param nodes The map of nodes
+* @return The number of steps required to reach the end of the path
+*
+*/
 fun navigate2(currentNode: String, instructions: String, nodes: Map<String, Node>): Int {
     var sum = 0
+    var lcmSum = 1
     var currentNodeVar = currentNode
     while (!currentNodeVar.endsWith("Z")) {
         val i = instructions[sum % instructions.length]
         val n = nodes[currentNodeVar]
-        currentNodeVar = if (i == 'L') n?.left else n?.right
+        currentNodeVar = if (i == 'L') n?.left ?: "" else n?.right ?: ""
         println("Node: $currentNodeVar")
         sum++
+        if (currentNodeVar.endsWith("Z")) {
+            lcmSum = lcm(lcmSum, sum)
+            sum = 0
+        }
     }
-    return sum
+    return lcmSum
 }
 
 
@@ -96,6 +109,7 @@ fun assertError(got: Int, want: Int) {
     }
 }
 
+
 fun main() {
     val test_data1 = """
         LLR
@@ -119,20 +133,19 @@ fun main() {
 """.trimIndent()
 
     // test if implementation meets criteria from the description, like:
-    val part1Answer = part1(test_data1)
-    println("Steps required to reach ZZZ: $part1Answer")
-    println("Test 1: $part1Answer")
-    assertError(part1Answer, 6)
+    val test1 = part1(test_data1)
+    println("Test 1: $test1")
+    assertError(test1, 6)
 
-    val part2Answer = part2(test_data2)
-    println("Test 2: $part2Answer")
-    assertError(part2Answer, 6)
+    val test2 = part2(test_data2)
+    println("Test 2: $test2")
+    assertError(test2, 6)
 
     // test if implementation meets criteria from the description, like:
     val data = readInput("../input.txt")
-    val testAnswer1 = part1(data)
-    println("Test 1: $testAnswer")
-    val testAnswer2 = part2(data)
-    println("Test 2: $testAnswer")
+    val part1Answer = part1(data)
+    println("Test 1: $part1Answer")
+    val part2Answer = part2(data)
+    println("Test 2: $part2Answer")
 
 }
